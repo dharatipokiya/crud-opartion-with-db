@@ -73,14 +73,14 @@ export default function Edit() {
     e.preventDefault();
     try {
       await axios.put(`http://localhost:3003/students/${id}`, student);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.log("Something is wrong");
     }
   };
 
   const handleclick = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (

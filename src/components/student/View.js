@@ -53,7 +53,7 @@ export default function View() {
   }, [id]);
 
   const handleclick = () => {
-    navigate("/home");
+    navigate("/");
   };
 
   return (
