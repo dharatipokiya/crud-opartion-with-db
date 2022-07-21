@@ -1,0 +1,28 @@
+{
+  "students": [
+    {
+      "stuname": "Dharati  S K",
+      "email": "dharati@gmail.com",
+      "phone": "1234567890",
+      "id": 1
+    },
+    {
+      "stuname": "Sagar",
+      "email": "dharati@gmail.com",
+      "phone": "1234567890",
+      "id": 2
+    },
+    {
+      "stuname": "DS",
+      "email": "super_admin_saya00482@gmail.com",
+      "phone": "1234567890",
+      "id": 3
+    },
+    {
+      "stuname": "dsfds",
+      "email": "dsfds",
+      "phone": "sdfdsf",
+      "id": 4
+    }
+  ]
+}
