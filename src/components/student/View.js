@@ -2,20 +2,16 @@ import {
   Typography,
   Box,
   makeStyles,
-  Grid,
   TableContainer,
   Table,
   TableBody,
   TableCell,
   TableHead,
   Paper,
-  IconButton,
-  Tooltip,
-  TestField,
   Button,
   TableRow,
 } from "@material-ui/core";
-import { deepPurple, green, orange } from "@material-ui/core/colors";
+import { orange } from "@material-ui/core/colors";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -76,9 +72,6 @@ export default function View() {
               </TableCell>
               <TableCell align="center" className={classes.tableHeadCell}>
                 Email
-              </TableCell>
-              <TableCell align="center" className={classes.tableHeadCell}>
-                Action
               </TableCell>
             </TableRow>
           </TableHead>

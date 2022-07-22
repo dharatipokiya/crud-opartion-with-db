@@ -3,26 +3,10 @@ import {
   Box,
   makeStyles,
   Grid,
-  TableContainer,
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  Paper,
-  IconButton,
-  Tooltip,
-  TestField,
   Button,
-  TableRow,
 } from "@material-ui/core";
 import { deepPurple, green, orange } from "@material-ui/core/colors";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import EditIcon from "@material-ui/icons/Edit";
-import DeleteIcon from "@material-ui/icons/Delete";
 import { TextField } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
-import { Link } from "react-router-dom";
-import List from "../student/List";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -134,7 +118,7 @@ export default function Edit() {
                   id="phone"
                   label="Phone No Address"
                   onChange={(e) => handleChange(e)}
-                  value={student.email}
+                  value={student.phone}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -147,7 +131,7 @@ export default function Edit() {
                   id="email"
                   label="Email Address"
                   onChange={(e) => handleChange(e)}
-                  value={student.phone}
+                  value={student.email}
                 />
               </Grid>
             </Grid>
