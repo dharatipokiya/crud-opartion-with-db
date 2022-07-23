@@ -1,16 +1,22 @@
 {
   "students": [
     {
-      "stuname": "Dharati",
+      "stuname": "DSK",
       "email": "dharati@gmail.com",
-      "phone": "9686545445656",
+      "phoneNo": "+91345678900000",
       "id": 1
     },
     {
-      "stuname": "Ds",
-      "email": "super_admin_saya00482@gmail.com",
-      "phone": "32245678956",
+      "stuname": "DSS",
+      "email": "dharati@gmail.com",
+      "phoneNo": "+91345678900",
       "id": 2
+    },
+    {
+      "stuname": "DGP",
+      "email": "dharati@gmail.com",
+      "phoneNo": "+91345678900",
+      "id": 3
     }
   ]
 }

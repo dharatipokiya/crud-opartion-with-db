@@ -5,6 +5,8 @@ import List from "../student/List";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import PhoneInput from "react-phone-number-input";
+import "react-phone-number-input/style.css";
 
 const useStyles = makeStyles({
   headingColor: {
@@ -33,9 +35,11 @@ export default function Home() {
   const [student, setStudent] = useState({
     stuname: "",
     email: "",
-    phone: "",
+    phoneNo: "",
   });
   const [status, setStatus] = useState(false);
+  const [ phoneInput, setphoneInput ] = useState("");
+
 
   const validation = () => {
     let formIsValid = true;
@@ -58,22 +62,14 @@ export default function Home() {
       error["email"] = "Please enter valid email";
     }
 
-    if (student && !student.phone) {
+    if (!phoneInput) {
       formIsValid = false;
-      error["phone"] = "Please enter your phone";
+      error["phoneNo"] = "Please enter your phone";
     }
     setError(error);
     return formIsValid;
   };
 
- 
-
-  function onlyNumberKey(evt) {
-    var ASCIICode = evt.which ? evt.which : evt.keyCode;
-    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) {
-      evt.preventDefault();
-    }
-  }
 
   const onTextFieldChange = (e) => {
     const { name, value } = e.target;
@@ -86,8 +82,13 @@ export default function Home() {
   const onFormSubmit = async (e) => {
     e.preventDefault();
     if (validation()) {
+      const body = {
+        ...student,
+        phoneNo:phoneInput
+      }
+     
       try {
-        await axios.post(`http://localhost:3003/students`, student);
+        await axios.post(`http://localhost:3003/students`,body);
         setStatus(true);
         toast.success("Data added Sucessfully");
       } catch (error) {
@@ -95,7 +96,7 @@ export default function Home() {
       }
     }
   };
-  const CHARACTER_LIMIT = 10;
+  
 
   if (status === true) {
     return <Home />;
@@ -146,21 +147,17 @@ export default function Home() {
                 </span>
               </Grid>
               <Grid item xs={12}>
-                <TextField
-                  autoComplete="phone"
-                  name="phone"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="phone"
-                  label="Phone No Address"
-                  type="number"
-                  maxLength={10}
-                  onChange={(e) => onTextFieldChange(e)}
-                  onKeyPress={onlyNumberKey}
-                />
+                    <PhoneInput
+                        placeholder="Enter Phone Number"
+                        value={phoneInput}
+                        name="phoneNo"
+                        maxLength="15"
+                        onChange={(e) => {
+                        setphoneInput(e);
+                        }}
+                      />
                 <span style={{ color: "red", top: "5px", fontSize: "12px" }}>
-                  {error["phone"]}
+                  {error["phoneNo"]}
                 </span>
               </Grid>
             </Grid>

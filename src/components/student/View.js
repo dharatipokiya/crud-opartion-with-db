@@ -79,7 +79,7 @@ export default function View() {
             <TableRow>
               <TableCell align="center">{student.id}</TableCell>
               <TableCell align="center">{student.stuname}</TableCell>
-              <TableCell align="center">{student.phone}</TableCell>
+              <TableCell align="center">{student.phoneNo}</TableCell>
 
               <TableCell align="center">{student.email}</TableCell>
             </TableRow>

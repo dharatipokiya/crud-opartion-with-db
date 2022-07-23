@@ -92,7 +92,7 @@ export default function List() {
                 <TableRow key={i}>
                   <TableCell align="center">{i + 1}</TableCell>
                   <TableCell align="center">{student.stuname}</TableCell>
-                  <TableCell align="center">{student.phone}</TableCell>
+                  <TableCell align="center">{student.phoneNo}</TableCell>
 
                   <TableCell align="center">{student.email}</TableCell>
                   <TableCell align="center">

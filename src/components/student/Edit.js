@@ -5,7 +5,7 @@ import {
   Grid,
   Button,
 } from "@material-ui/core";
-import { deepPurple, green, orange } from "@material-ui/core/colors";
+import { deepPurple, green } from "@material-ui/core/colors";
 import { TextField } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -29,7 +29,7 @@ export default function Edit() {
   const [student, setStudent] = useState({
     stuname: "",
     email: "",
-    phone:"",
+    phoneNo:"",
   });
 
   useEffect(() => {
@@ -88,7 +88,6 @@ export default function Edit() {
                   required
                   fullWidth
                   id="id"
-                  //   label="id"
                   autoFocus
                   value={student.id}
                   disabled
@@ -110,15 +109,15 @@ export default function Edit() {
               </Grid>
               <Grid item xs={12}>
                 <TextField
-                  autoComplete="phone"
-                  name="phone"
+                  autoComplete="phoneNo"
+                  name="phoneNo"
                   variant="outlined"
                   required
                   fullWidth
-                  id="phone"
+                  id="phoneNo"
                   label="Phone No Address"
                   onChange={(e) => handleChange(e)}
-                  value={student.phone}
+                  value={student.phoneNo}
                 />
               </Grid>
               <Grid item xs={12}>
