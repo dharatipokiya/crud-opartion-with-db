@@ -1,10 +1,4 @@
-import {
-  Typography,
-  Box,
-  makeStyles,
-  Grid,
-  Button,
-} from "@material-ui/core";
+import { Typography, Box, makeStyles, Grid, Button } from "@material-ui/core";
 import { deepPurple, green } from "@material-ui/core/colors";
 import { TextField } from "@mui/material";
 import { useParams, useNavigate } from "react-router-dom";
@@ -29,8 +23,9 @@ export default function Edit() {
   const [student, setStudent] = useState({
     stuname: "",
     email: "",
-    phoneNo:"",
+    phoneNo: "",
   });
+  const [error, setError] = useState("");
 
   useEffect(() => {
     async function getStudent() {
@@ -53,13 +48,37 @@ export default function Edit() {
     });
   };
 
+  const validation = () => {
+    let formIsValid = true;
+    const error = {};
+
+    if (student && !student.stuname) {
+      formIsValid = false;
+      error["stuname"] = "Please enter your name";
+    }
+
+    if (student && !student.phoneNo) {
+      formIsValid = false;
+      error["phoneNo"] = "Please enter your Phone No";
+    }
+
+    if (student && !student.email) {
+      formIsValid = false;
+      error["email"] = "Please enter your email address";
+    }
+    setError(error);
+    return formIsValid;
+  };
+
   const onFormSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.put(`http://localhost:3003/students/${id}`, student);
-      navigate("/");
-    } catch (error) {
-      console.log("Something is wrong");
+    if (validation()) {
+      e.preventDefault();
+      try {
+        await axios.put(`http://localhost:3003/students/${id}`, student);
+        navigate("/");
+      } catch (error) {
+        console.log("Something is wrong");
+      }
     }
   };
 
@@ -106,6 +125,9 @@ export default function Edit() {
                   value={student.stuname}
                   onChange={(e) => handleChange(e)}
                 />
+                <span style={{ color: "red", top: "5px", fontSize: "12px" }}>
+                  {error["stuname"]}
+                </span>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -119,6 +141,9 @@ export default function Edit() {
                   onChange={(e) => handleChange(e)}
                   value={student.phoneNo}
                 />
+                <span style={{ color: "red", top: "5px", fontSize: "12px" }}>
+                  {error["phoneNo"]}
+                </span>
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -132,6 +157,9 @@ export default function Edit() {
                   onChange={(e) => handleChange(e)}
                   value={student.email}
                 />
+                <span style={{ color: "red", top: "5px", fontSize: "12px" }}>
+                  {error["email"]}
+                </span>
               </Grid>
             </Grid>
 

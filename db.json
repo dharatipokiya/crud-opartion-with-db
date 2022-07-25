@@ -17,6 +17,24 @@
       "email": "dharati@gmail.com",
       "phoneNo": "+91345678900",
       "id": 3
+    },
+    {
+      "stuname": "DDD",
+      "email": "dharati@gmail.com",
+      "phoneNo": "+2134567890",
+      "id": 4
+    },
+    {
+      "stuname": "GGH",
+      "email": "0pq1so40b3l@20minutemail.it",
+      "phoneNo": "+3245678900",
+      "id": 5
+    },
+    {
+      "stuname": "SSS",
+      "email": "0pq1so40b3l@20minutemail.it",
+      "phoneNo": "+23456789000",
+      "id": 6
     }
   ]
 }
